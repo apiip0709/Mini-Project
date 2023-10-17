@@ -1,8 +1,10 @@
+// Inisialisasi value dari html
 const playBoard = document.querySelector(".play-board");
 const scoreElement = document.querySelector(".score");
 const highScoreElement = document.querySelector(".high-score");
 const controls = document.querySelectorAll(".controls i");
 
+// Variabel yang digunakan
 let gameOver = false;
 let foodX, foodY;
 let snakeX = 5, snakeY = 5;
@@ -13,7 +15,6 @@ let score = 0;
 let canChangeDirection = true; // Tambahkan flag untuk mengizinkan perubahan arah
 
 // Mendapatkan High Score from local storage
-
 let highScore = localStorage.getItem("high-score") || 0;
 highScoreElement.innerText = `High Score: ${highScore}`;
 
@@ -23,6 +24,7 @@ const updateFoodPosition = () =>{
     foodY = Math.floor(Math.random() * 30) + 1;
 }
 
+// Kondisi untuk Game Over
 const handleGameOver = () =>{
     clearInterval(setIntervalId);
     alert("Game Over! Press OK to reply")
@@ -78,7 +80,6 @@ const initGame = () =>{
     snakeY += velocityY;
 
     // shifting forward values of elements in snake body by one
-
     for(let i = snakeBody.length - 1; i > 0; i--) {
         snakeBody[i] = snakeBody[i - 1];
     }
@@ -86,13 +87,11 @@ const initGame = () =>{
     snakeBody[0] = [snakeX, snakeY];
 
     // check snake body is out of wall or no
-
     if (snakeX <= 0 || snakeX > 30 || snakeY <= 0 || snakeY > 30){
         return gameOver = true;
     }
 
     // add div for each part of snake body
-
     for (let i = 0; i < snakeBody.length; i++){
         html += `<div class="head" style="grid-area: ${snakeBody[i][1]} / ${snakeBody[i][0]}"></div>`;
         // check snake head hit body or no
@@ -103,6 +102,7 @@ const initGame = () =>{
     playBoard.innerHTML = html;
 }
 
+// Pemanggilan function food secara acak
 updateFoodPosition();
 setIntervalId = setInterval(initGame, 100);
 document.addEventListener("keyup", changeDirection);
