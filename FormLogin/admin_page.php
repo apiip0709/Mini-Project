@@ -28,7 +28,7 @@ if(!isset($_SESSION['admin_name'])){
             <p>this is an admin page</p>
             <a href="login_form.php" class="btn">login</a>
             <a href="register_form.php" class="btn">register</a>
-            <a href="logiut.php" class="btn">logout</a>
+            <a href="logout.php" class="btn">logout</a>
         </div>
     </div>
 </body>
