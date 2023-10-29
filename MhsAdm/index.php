@@ -87,7 +87,7 @@ if (isset($_POST['btnsimpan'])) {
                                 <label for="nama" class="form-label">Nama Mahasiswa</label>
                                 <input class="form-control" type="text" name="nama" value="<?= $vnama ?>" required placeholder="Masukkan Nama Lengkap">
                             </div>
-
+ 
                             <div class="mb-3">
                                 <label for="nim" class="form-label">NIM Mahasiswa</label>
                                 <input class="form-control" type="text" name="nim" value="<?= $vnim ?>" required placeholder="Masukkan NIM">
